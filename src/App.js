@@ -13,6 +13,25 @@ import Auth0ProtectedRoute from "./components/Auth0ProtectedRoute";
 const Home = lazy(() => import("./pages/Home/Home"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Docs = lazy(() => import("./pages/Document"));
+const Support = lazy(() => import("./pages/Support"));
+const Blog = lazy(() => import("./pages/Blog"));
+const Integrations = lazy(() => import("./pages/Integrations"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const Features = lazy(() => import("./components/Features"));
+
+const VideoReviews = lazy(() => import("./pages/Services/VideoReviews"));
+const AudioReviews = lazy(() => import("./pages/Services/AudioReviews"));
+const TextReviews = lazy(() => import("./pages/Services/TextReviews"));
+const QRCodeCollection = lazy(() => import("./pages/Services/QRCodeCollection"));
+
+const CarouselWidget = lazy(() => import("./pages/Widgets/CarouselWidget"));
+const GridWidget = lazy(() => import("./pages/Widgets/GridWidget"));
+const SpotlightWidget = lazy(() => import("./pages/Widgets/SpotlightWidget"));
+const FloatingWidget = lazy(() => import("./pages/Widgets/FloatingWidget"));
+
 const Login = lazy(() => import("./pages/Auth0Login"));
 const Signup = lazy(() => import("./pages/Auth0Signup"));
 const PublicReviews = lazy(() => import("./pages/PublicReviews"));
@@ -42,7 +61,7 @@ function App() {
     location.pathname.startsWith("/record/") ||
     (!location.pathname.startsWith("/dashboard") &&
       !location.pathname.startsWith("/login") &&
-     !location.pathname.startsWith("/create-business"));
+      !location.pathname.startsWith("/create-business"));
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -52,8 +71,27 @@ function App() {
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/features" element={<Features />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/docs" element={<Docs />} />
+            <Route path="/support" element={<Support />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/integrations" element={<Integrations />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+
+            <Route path="/services/video-reviews" element={<VideoReviews />} />
+            <Route path="/services/audio-reviews" element={<AudioReviews />} />
+            <Route path="/services/text-reviews" element={<TextReviews />} />
+            <Route path="/services/qr-collection" element={<QRCodeCollection />} />
+
+            <Route path="/widgets/carousel" element={<CarouselWidget />} />
+            <Route path="/widgets/grid" element={<GridWidget />} />
+            <Route path="/widgets/spotlight" element={<SpotlightWidget />} />
+            <Route path="/widgets/floating" element={<FloatingWidget />} />
+
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/create-business" element={<ComprehensiveOnboarding />} />
@@ -87,11 +125,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
-
-

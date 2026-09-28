@@ -91,10 +91,10 @@ const Navbar = () => {
     },
   ];
 
-  const handleLogout = () => {
-    logout();
-    logout(); navigate('/login');
-  };
+ const handleLogout = () => {
+  logout();
+  navigate('/login');
+};
 
   return (
     <>
@@ -255,8 +255,7 @@ const Navbar = () => {
                   className="flex items-center gap-3"
                 >
                   <img 
-                    src="/ReviewMe.png" 
-                    alt="ReviewMe" 
+                    src={logo}
                     className="h-8 w-auto"
                   />
                 </Link>
