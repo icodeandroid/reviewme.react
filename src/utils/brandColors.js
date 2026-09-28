@@ -1,8 +1,8 @@
-// TrueTestify Brand Colors Configuration
-// Based on official TrueTestify brand image - NO GRADIENTS, solid colors only
+// ReviewMe Brand Colors Configuration
+// Based on official ReviewMe brand image - NO GRADIENTS, solid colors only
 
 export const BRAND_COLORS = {
-  // Primary Brand Colors (from TrueTestify brand image)
+  // Primary Brand Colors (from ReviewMe brand image)
   primary: '#04A4FF',        // Teal Blue - Primary Color
   secondary: '#04A4FF',      // Sky Blue - Secondary Color (same as primary)
   
@@ -86,3 +86,4 @@ export const getWidgetColors = (type) => {
 export const getStatusColors = (status) => {
   return BRAND_COLORS.status[status] || BRAND_COLORS.status.info;
 };
+

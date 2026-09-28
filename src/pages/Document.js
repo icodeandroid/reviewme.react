@@ -9,7 +9,7 @@ const Document = () => {
           Getting Started
         </h2>
         <p className="text-gray-600 mb-6">
-          Welcome to TrueTestify documentation. Here you'll find everything you
+          Welcome to ReviewMe documentation. Here you'll find everything you
           need to get started with collecting and managing customer
           testimonials.
         </p>
@@ -54,3 +54,5 @@ const Document = () => {
 };
 
 export default Document;
+
+

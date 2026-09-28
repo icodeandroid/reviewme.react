@@ -1,4 +1,4 @@
-import Logo from './TrueTestify.png'
+import Logo from './ReviewMe.png' // ReviewMe
 import Icon from './favicon.ico'
 import Card from './debit-card.png'
 
@@ -162,3 +162,7 @@ export const assest = {
   Icon,
   Card
 }
+
+
+
+

@@ -7,7 +7,7 @@ const FeaturesHeader = () => {
         <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
-              TrueTestify Features
+              ReviewMe Features
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
               Video Testimonial Capture,Audio & Text Reviews,Audio & Text
@@ -22,3 +22,5 @@ const FeaturesHeader = () => {
 };
 
 export default FeaturesHeader;
+
+

@@ -1,7 +1,7 @@
-/* TrueTestify Dashboard Styles */
+/* reviewme Dashboard Styles */
 /* Consistent branding and typography across all dashboard pages */
 
-/* Import TrueTestify brand fonts */
+/* Import reviewme brand fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* Founders Grotesk font fallback - if not available, use system fonts */
@@ -37,7 +37,7 @@
   font-display: swap;
 }
 
-/* CSS Custom Properties for TrueTestify Brand Colors */
+/* CSS Custom Properties for reviewme Brand Colors */
 :root {
   /* Primary Brand Colors */
   --tt-teal-primary: #04A4FF;

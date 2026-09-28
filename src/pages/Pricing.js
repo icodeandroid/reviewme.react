@@ -106,7 +106,7 @@ const Pricing = () => {
               </h3>
             </div>
             <p className="text-blue-700 mb-4">
-              You need an active subscription to access TrueTestify's premium features. 
+              You need an active subscription to access ReviewMe's premium features. 
               Choose a plan below to get started with unlimited video testimonials and advanced features.
             </p>
           </div>
@@ -245,3 +245,5 @@ const Pricing = () => {
 };
 
 export default Pricing;
+
+

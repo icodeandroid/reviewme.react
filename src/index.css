@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* TrueTestify Business-Grade Design System */
+/* reviewme Business-Grade Design System */
 :root {
   /* Premium Brand Colors - Blue + Orange Theme */
   --color-primary-blue: #1e3a8a;
@@ -97,18 +97,18 @@
   }
   
   /* Premium Button System */
-  .btn-truetestify {
+  .btn-reviewme {
     @apply inline-flex items-center justify-center px-8 py-4 text-sm font-semibold rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 relative overflow-hidden;
     box-shadow: var(--shadow-lg);
   }
   
-  .btn-truetestify:hover {
+  .btn-reviewme:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-xl);
   }
   
   .btn-primary {
-    @apply btn-truetestify text-white focus:ring-orange-500;
+    @apply btn-reviewme text-white focus:ring-orange-500;
     background: var(--gradient-secondary);
   }
   
@@ -117,7 +117,7 @@
   }
   
   .btn-secondary {
-    @apply btn-truetestify text-white focus:ring-blue-500;
+    @apply btn-reviewme text-white focus:ring-blue-500;
     background: var(--gradient-primary);
   }
   
@@ -126,7 +126,7 @@
   }
   
   .btn-outline {
-    @apply btn-truetestify bg-white text-blue-600 border-2 border-blue-600 hover:text-white focus:ring-blue-500;
+    @apply btn-reviewme bg-white text-blue-600 border-2 border-blue-600 hover:text-white focus:ring-blue-500;
   }
   
   .btn-outline:hover {
@@ -135,7 +135,7 @@
   }
   
   .btn-ghost {
-    @apply btn-truetestify bg-transparent text-gray-600 hover:bg-gray-100 focus:ring-gray-500 shadow-none;
+    @apply btn-reviewme bg-transparent text-gray-600 hover:bg-gray-100 focus:ring-gray-500 shadow-none;
   }
 }
   /* Premium Card System */
@@ -433,7 +433,7 @@ img, video {
 
 /* Mobile Optimizations */
 @media (max-width: 640px) {
-  .btn-truetestify {
+  .btn-reviewme {
     @apply w-full justify-center;
   }
   

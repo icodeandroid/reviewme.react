@@ -36,3 +36,4 @@ export const Auth0ProviderWithNavigate = ({ children }) => {
     </Auth0Provider>
   );
 };
+

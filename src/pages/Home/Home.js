@@ -126,7 +126,7 @@ const Home = () => {
       <div className="px-6 py-16 md:p-20 bg-gray-50 border-b border-gray-200">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-3xl font-extrabold text-gray-800 mb-16 tracking-tight">
-            How TrueTestify Works
+            How ReviewMe Works
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="flex flex-col items-center text-center p-6 bg-white rounded-xl shadow-sm border border-gray-200">
@@ -209,7 +209,7 @@ const Home = () => {
       <div className="px-6 py-16 md:p-20 bg-gray-50 border-b border-gray-200">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-3xl font-extrabold text-gray-800 mb-16 tracking-tight">
-            Why Choose TrueTestify?
+            Why Choose ReviewMe?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200">
@@ -290,3 +290,5 @@ const Home = () => {
 };
 
 export default Home;
+
+

@@ -38,7 +38,7 @@ const Support = () => {
   const faqs = [
     {
       id: 1,
-      question: "How do I get started with TrueTestify?",
+      question: "How do I get started with ReviewMe?",
       answer:
         "Getting started is easy! Simply sign up for an account, choose your plan, and follow our step-by-step setup guide. We'll help you configure your first widget and start collecting testimonials within minutes.",
       category: "getting-started",
@@ -48,7 +48,7 @@ const Support = () => {
       id: 2,
       question: "What types of testimonials can I collect?",
       answer:
-        "TrueTestify supports video, audio, and text testimonials. You can collect reviews through our widget, QR codes, direct links, or by uploading existing testimonials. All formats are automatically optimized for display.",
+        "ReviewMe supports video, audio, and text testimonials. You can collect reviews through our widget, QR codes, direct links, or by uploading existing testimonials. All formats are automatically optimized for display.",
       category: "testimonials",
       tags: ["video", "audio", "text", "formats"],
     },
@@ -174,7 +174,7 @@ const Support = () => {
               Support Center
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Get help with TrueTestify. Find answers, contact support, and
+              Get help with ReviewMe. Find answers, contact support, and
               learn how to make the most of our platform.
             </p>
 
@@ -447,3 +447,5 @@ const Support = () => {
 };
 
 export default Support;
+
+

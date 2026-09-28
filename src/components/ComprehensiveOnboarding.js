@@ -1,6 +1,5 @@
 import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
 import axiosInstance from '../service/axiosInstanse';
 import { API_PATHS } from '../service/apiPaths';
 import { AuthContext } from '../context/AuthContext';
@@ -20,8 +19,7 @@ import {
 import { assest } from '../assets/mockData';
 
 const ComprehensiveOnboarding = () => {
-  const { user, getAccessTokenSilently } = useAuth0();
-  const { setTenant, setNeedsOnboarding } = useContext(AuthContext);
+  const { user, setTenant, setNeedsOnboarding } = useContext(AuthContext);
   const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
   const [loading, setLoading] = useState(false);
@@ -64,11 +62,11 @@ const ComprehensiveOnboarding = () => {
   const steps = [
     {
       title: "Create Your Business Account",
-      description: "Set up your Truetestify account"
+      description: "Set up your reviewme account"
     },
     {
       title: "Create Your Business Account", 
-      description: "Set up your Truetestify account"
+      description: "Set up your reviewme account"
     }
   ];
 
@@ -142,7 +140,7 @@ const ComprehensiveOnboarding = () => {
       }
     } catch (error) {
       console.error('Slug check failed:', error);
-      setSlugStatus({ checking: false, available: null, suggestions: [] });
+      setSlugStatus({ checking: false, available: true, suggestions: [] });
     }
   };
 
@@ -182,14 +180,6 @@ const handlePre = () => {
         setLoading(false);
         return;
       }
-      
-      const token = await getAccessTokenSilently({
-        authorizationParams: {
-          audience: process.env.REACT_APP_AUTH0_AUDIENCE,
-        },
-      });
-
-      axiosInstance.defaults.headers.Authorization = `Bearer ${token}`;
 
       const data = new FormData();
       
@@ -232,7 +222,7 @@ const handlePre = () => {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
-      setTenant(response.data.business);
+      setTenant(response.data.business || response.data);
       setNeedsOnboarding(false);
       
       toast.success('Business created successfully!');
@@ -283,7 +273,7 @@ const handlePre = () => {
               <div className="mt-2 p-3 bg-gray-50 rounded-lg border border-gray-200">
                 <div className="flex items-center text-blue-600">
                   <LinkIcon className="w-4 h-4 mr-2" />
-                  <span className="text-sm font-medium">Truetestify.com/{!formData.slug ? "yourbusiness-slug" : formData.slug.toLowerCase()}</span>
+                  <span className="text-sm font-medium">reviewme.com/{!formData.slug ? "yourbusiness-slug" : formData.slug.toLowerCase()}</span>
                 </div>
                 <p className="text-xs text-blue-500 mt-1">Your Public Review Page</p>
               </div>
@@ -740,10 +730,10 @@ const handlePre = () => {
   return (
     <div className="min-h-screen bg-white flex items-center justify-center p-4">
       <div className="max-w-2xl w-full">
-        {/* TrueTestify Logo */}
+        {/* reviewme Logo */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mb-8">
-            <Link to={'/'}><img src={assest.Logo} alt="TrueTestify Logo" className="h-10" /></Link>
+            <Link to={'/'}><img src={assest.Logo} alt="reviewme Logo" className="h-10" /></Link>
           </div>
         </div>
 

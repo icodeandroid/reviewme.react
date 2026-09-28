@@ -1,6 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
-import axiosInstance from '../service/axiosInstanse';
-import { API_PATHS } from '../service/apiPaths';
+import { useState } from 'react';
 
 export const useFeatureAccess = (feature) => {
   // Simplified - feature access is handled by billing service on backend
@@ -12,37 +10,18 @@ export const useFeatureAccess = (feature) => {
 };
 
 export const useStorageStatus = () => {
-  const [storageStatus, setStorageStatus] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // Temporary: backend mein billing/storage-status endpoint abhi nahi hai,
+  // isliye request bhejne ki jagah default values use ho rahi hain
+  const [storageStatus] = useState({
+    storageUsageGb: 0.1,
+    storageLimitGb: 1,
+    usagePercentage: 10,
+    isExceeded: false,
+    canUpload: true,
+  });
+  const [loading] = useState(false);
 
-  const fetchStorageStatus = useCallback(async () => {
-    try {
-      const response = await axiosInstance.get(
-        API_PATHS.BILLING.GET_STORAGE_STATUS
-      );
-      setStorageStatus(response.data);
-    } catch (error) {
-      console.log('Storage status fetch failed:', error);
-      setStorageStatus({
-        storageUsageGb: 0.1,
-        storageLimitGb: 1,
-        usagePercentage: 10,
-        isExceeded: false,
-        canUpload: true
-      });
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchStorageStatus();
-  }, [fetchStorageStatus]);
-
-  const refetch = () => {
-    setLoading(true);
-    fetchStorageStatus();
-  };
+  const refetch = () => {};
 
   return { storageStatus, loading, refetch };
 };

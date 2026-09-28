@@ -22,7 +22,7 @@ const PaymentPrompt = ({ onDismiss }) => {
           </div>
           
           <p className="text-orange-100 mb-4">
-            You're using TrueTestify's free plan. Upgrade to collect unlimited reviews and access advanced features.
+            You're using ReviewMe's free plan. Upgrade to collect unlimited reviews and access advanced features.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
@@ -77,3 +77,4 @@ const PaymentPrompt = ({ onDismiss }) => {
 };
 
 export default PaymentPrompt;
+

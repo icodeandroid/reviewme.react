@@ -1,73 +1,72 @@
-export const BASE_URL = process.env.REACT_APP_BASE_URL || (process.env.NODE_ENV === 'production' ? 'https://aees6b6nda.execute-api.us-east-1.amazonaws.com/dev' : 'http://localhost:4000');
+export const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
-// API Paths for TrueTestify MVP - Aligned with Backend
 export const API_PATHS = {
   AUTH: {
-    CHECK_USER: "/users/me",
     REGISTER: "/api/auth/register",
-    PROFILE: "/auth/profile",
-    SYNC: "/auth/sync",
-    RESEND_VERIFICATION: "/auth/resend-verification",
+    LOGIN: "/api/auth/login",
+    ME: "/api/auth/me",
+    LOGOUT: "/api/auth/logout",
+    REFRESH: "/api/auth/refresh",
+    CHANGE_PASSWORD: "/api/auth/change-password",
   },
   BUSINESSES: {
-    GET_PRIVATE_PROFILE: "/api/business/me",
-    UPDATE_PRIVATE_PROFILE: "/api/business/me",
-    GET_PUBLIC_PROFILE: (slug) => `/business/${slug}`,
-    MARK_AS_READ: "/api/business/mark-notifications-read",
-    GET_NOTIFICATIONS: "/api/business/notifications",
-    CREATE_BUSINESS: "/api/business",
-    TOGGLE_TEXT_REVIEWS: "/api/business/settings/text-reviews",
-    TOGGLE_GOOGLE_REVIEWS: "/api/business/settings/google-reviews",
+    CREATE_BUSINESS: "/api/businesses",
+    GET_MY_BUSINESS: "/api/businesses/private",
+    GET_PRIVATE_PROFILE: "/api/businesses/private",
+    GET_PUBLIC_PROFILE: (slug) => `/api/businesses/public/${slug}`,
+    UPDATE_SETTINGS: "/api/businesses/settings",
   },
   REVIEWS: {
-    LIST: '/api/reviews',
-    GET_PUBLIC_REVIEWS: (slug) => `/public/${slug}/reviews`,
-    CREATE_REVIEW: (slug) => `/api/web/${slug}/reviews`,  // Web-specific endpoint
-    GET_REVIEWS: (slug) => `/api/admin/${slug}/reviews`,
-    GET_REVIEW: (slug, id) => `/api/admin/${slug}/reviews/${id}`,
-    UPDATE_REVIEW_STATUS: (slug, id) => `/api/admin/${slug}/reviews/${id}/status`,
+    CREATE_REVIEW: "/api/reviews",
+    LIST: "/api/reviews",
+    GET_PUBLIC_REVIEWS: (businessId) => `/api/reviews/public/${businessId}`,
+    APPROVE_REVIEW: (id) => `/api/reviews/${id}/status`,
+    REJECT_REVIEW: (id) => `/api/reviews/${id}/status`,
+    DELETE_REVIEW: (id) => `/api/reviews/${id}`,
   },
   WIDGETS: {
+    GET_WIDGETS: "/api/widgets",
     CREATE_WIDGET: "/api/widgets",
     UPDATE_WIDGET: (id) => `/api/widgets/${id}`,
-    GET_WIDGETS: "/api/widgets",
     DELETE_WIDGET: (id) => `/api/widgets/${id}`,
-    GET_EMBED_CODE: (id) => `/api/widgets/${id}/embed-code`,
+  },
+  NOTIFICATIONS: {
+    LIST: "/api/notifications",
+    UNREAD_COUNT: "/api/notifications/unread-count",
+    MARK_ALL_READ: "/api/notifications/read-all",
+    MARK_AS_READ: (id) => `/api/notifications/${id}/read`,
+    CLEAR_ALL: "/api/notifications/clear",
+    DELETE: (id) => `/api/notifications/${id}`,
+  },
+  DASHBOARD: {
+    OVERVIEW: "/api/dashboard/overview",
+    RECENT_REVIEWS: "/api/dashboard/recent-reviews",
   },
   ANALYTICS: {
-    GET_DASHBOARD: "/api/analytics/dashboard",
-    GET_WIDGET_PERFORMANCE: (widgetId) => `/api/analytics/widgets/${widgetId}/performance`,
-    GET_REVIEW_TRENDS: "/api/analytics/reviews/trends",
-    GET_STORAGE_USAGE: "/api/analytics/storage/usage",
-    TRACK_EVENT: "/api/analytics/events",
+    SUMMARY: "/api/analytics/summary",
+    SENTIMENT_DISTRIBUTION: "/api/analytics/sentiment-distribution",
+    RATING_DISTRIBUTION: "/api/analytics/rating-distribution",
+    TIMESERIES: "/api/analytics/timeseries",
+    KEYWORDS: "/api/analytics/keywords",
+  },
+  MEDIA: {
+    UPLOAD: "/api/media/upload",
+    STORAGE_STATUS: "/api/media/storage-status",
   },
   BILLING: {
+    GET_BILLING_ACCOUNT: "/api/billing/account",
+    SELECT_PLAN: "/api/billing/select-plan",
     GET_PRICING_PLANS: "/api/billing/plans",
-    GET_BILLING_ACCOUNT: "/api/billing/info",
+    GET_STORAGE_STATUS: "/api/billing/storage-status",
+    GET_INVOICES: "/api/billing/invoices",
     CREATE_CHECKOUT_SESSION: "/api/billing/checkout",
     CREATE_PORTAL_SESSION: "/api/billing/portal",
-    GET_STORAGE_STATUS: "/api/billing/status",
-    GET_INVOICES: "/api/billing/invoices",
-    DOWNLOAD_INVOICE: (invoiceId) => `/api/billing/invoices/${invoiceId}/download`,
-  },
-  GOOGLE:{
-    CONNECT_GOOGLE_ACCOUNT:'/api/google/auth-url',
-    CONNECTION_STATUS:'/api/google/status',
-    CONNECTION_PROGRESS:'/api/google/connection-progress',
-    BUSINESS_PROFILES:'/api/google/business-profiles',
-    IMPORT_REVIEWS:'/api/google/import-reviews',
-    FETCH_REVIEWS:'/api/google/reviews',
-    DISCONNECT_GOOGLE_ACCOUNT:'/api/google/disconnect'
-  },
-  COMPLIANCE: {
-    DELETE_REVIEW_PERMANENTLY: (id) => `/api/reviews/${id}/delete-permanently`,
-    GET_CONSENT_LOGS: '/api/compliance/consent-logs'
+    DOWNLOAD_INVOICE: (id) => `/api/billing/invoices/${id}/download`,
   },
   VALIDATION: {
-    CHECK_SLUG_AVAILABILITY: (slug) => `/api/validation/slug/${slug}`,
-    SUGGEST_SLUG: (name) => `/api/validation/suggest-slug?name=${encodeURIComponent(name)}`
+    CHECK_SLUG_AVAILABILITY: (slug) => `/api/validation/slug/check/${slug}`,
+    SUGGEST_SLUG: (name) => `/api/validation/slug/suggest?name=${name}`,
   },
-  FILES: {
-    DELETE_FILE: (type, filename) => `/api/files/${type}/${filename}`
-  }
 };
+
+

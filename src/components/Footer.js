@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 mb-8 text-left">
           <div>
             <h3 className="text-2xl font-extrabold text-white tracking-tight mb-4">
-              TrueTestify
+              ReviewMe
             </h3>
             <p className="text-sm text-gray-400">
               The ultimate platform for collecting, moderating, and showcasing
@@ -122,7 +122,7 @@ const Footer = () => {
 
         <hr className="my-8 border-gray-700" />
         <div className="text-center text-sm text-gray-500">
-          © 2025 TrueTestify. All rights reserved.
+          © 2025 ReviewMe. All rights reserved.
         </div>
       </div>
     </footer>
@@ -130,3 +130,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+

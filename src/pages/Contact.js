@@ -130,7 +130,7 @@ const Contact = () => (
           </h3>
           <div className="w-full h-64 rounded-lg overflow-hidden mb-6">
             <iframe
-              title="TrueTestify Office Location"
+              title="ReviewMe Office Location"
               src="https://www.openstreetmap.org/export/embed.html?bbox=77.5946%2C12.9716%2C77.5946%2C12.9716&amp;layer=mapnik"
               className="w-full h-full border-0"
               allowFullScreen=""
@@ -144,7 +144,7 @@ const Contact = () => (
               State 12345
             </div>
             <div className="mb-2">
-              <strong>Email:</strong> support@truetestify.com
+              <strong>Email:</strong> support@ReviewMe.com
             </div>
             <div>
               <strong>Phone:</strong> +1 (555) 123-4567
@@ -188,7 +188,7 @@ const Contact = () => (
       <h2 className="text-4xl font-extrabold mb-4">Ready to Connect?</h2>
       <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
         Our team is here to answer your questions and help you get the most out
-        of TrueTestify. Reach out today!
+        of ReviewMe. Reach out today!
       </p>
       <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
         <Link
@@ -209,3 +209,5 @@ const Contact = () => (
 );
 
 export default Contact;
+
+

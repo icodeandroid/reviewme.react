@@ -8,7 +8,7 @@ const FloatingReviewWidget = () => {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "Hi! I'm TrueTestify AI. I can help you with video testimonials, widget setup, and review management. How can I assist you today?",
+      text: "Hi! I'm ReviewMe AI. I can help you with video testimonials, widget setup, and review management. How can I assist you today?",
       isBot: true,
       timestamp: new Date()
     }
@@ -38,7 +38,7 @@ const FloatingReviewWidget = () => {
           messages: [
             {
               role: 'system',
-              content: `You are TrueTestify AI, a helpful assistant for TrueTestify - a video testimonial platform. Key features:
+              content: `You are ReviewMe AI, a helpful assistant for ReviewMe - a video testimonial platform. Key features:
               - Video testimonials: 60-second browser recording, 3x more trust than text
               - Widgets: Grid, carousel, spotlight layouts with themes
               - QR codes: Offline collection for packaging/receipts
@@ -46,7 +46,7 @@ const FloatingReviewWidget = () => {
               - Easy setup: Profile → Widget → Share → Embed (10 minutes)
               - Dashboard: Moderate reviews, analytics, billing
               
-              Be helpful, concise, and focus on TrueTestify benefits. Always offer specific next steps.`
+              Be helpful, concise, and focus on ReviewMe benefits. Always offer specific next steps.`
             },
             {
               role: 'user',
@@ -62,7 +62,7 @@ const FloatingReviewWidget = () => {
       return data.choices[0].message.content;
     } catch (error) {
       console.error('Chatbot API error:', error);
-      return "I'm having trouble connecting right now. TrueTestify helps you collect video testimonials with easy widgets and QR codes. Try asking about widgets, video setup, or pricing!";
+      return "I'm having trouble connecting right now. ReviewMe helps you collect video testimonials with easy widgets and QR codes. Try asking about widgets, video setup, or pricing!";
     }
   };
 
@@ -130,7 +130,7 @@ const FloatingReviewWidget = () => {
                   <span className="text-white text-sm font-bold">T</span>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-800">TrueTestify AI</h3>
+                  <h3 className="text-lg font-bold text-gray-800">ReviewMe AI</h3>
                   <p className="text-xs text-green-600">Online • Ready to help</p>
                 </div>
               </div>
@@ -173,7 +173,7 @@ const FloatingReviewWidget = () => {
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Ask about TrueTestify..."
+                placeholder="Ask about ReviewMe..."
                 className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
               />
               <button
@@ -213,3 +213,4 @@ const FloatingButton = () => (
 );
 
 export default FloatingReviewWidget;
+

@@ -5,17 +5,16 @@ import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import LogoutModal from "../components/LogoutModal";
 import { AuthContext } from "../context/AuthContext";
-import { useAuth0 } from "@auth0/auth0-react";
 
 const DashboardLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const { logout } = useContext(AuthContext);
-  const { logout: auth0Logout } = useAuth0();
+  
 
   const handleLogout = () => {
     logout();
-    auth0Logout({ returnTo: window.location.origin });
+    
   };
   
   return (
@@ -73,3 +72,8 @@ const DashboardLayout = () => {
 };
 
 export default DashboardLayout;
+
+
+
+
+

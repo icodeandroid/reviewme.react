@@ -183,3 +183,4 @@ const PublicReviewCard = ({ review, onViewReview, badge }) => {
 };
 
 export default PublicReviewCard;
+

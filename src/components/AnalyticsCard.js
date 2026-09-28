@@ -12,3 +12,5 @@ const AnalyticsCard = ({ title, value, icon, color }) => (
   </div>
 );
 export default AnalyticsCard;
+
+

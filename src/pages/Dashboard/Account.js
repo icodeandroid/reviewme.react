@@ -15,21 +15,23 @@ import {
   ArrowRightEndOnRectangleIcon,
 } from "@heroicons/react/16/solid";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import axiosInstance from "../../service/axiosInstanse";
 import { API_PATHS } from "../../service/apiPaths";
 import toast from "react-hot-toast";
-import { useAuth0 } from "@auth0/auth0-react";
 
 const Account = () => {
+  const { user, logout } = useContext(AuthContext);
   const [business, setBusiness] = useState(null);
   const [name, setName] = useState("");
   const [slug, setSlug] = useState("");
   const [editMode, setEditMode] = useState(false);
   const [loading, setLoading] = useState(false);
   const [fetchLoading, setFetchLoading] = useState(true);
-  const { isAuthenticated, logout, user: auth0User } = useAuth0();
+  
   const navigate = useNavigate();
   console.log(business);
 
@@ -52,10 +54,10 @@ const Account = () => {
       }
     };
 
-    if (isAuthenticated) {
+    if (true) {
       fetchBusiness();
     }
-  }, [isAuthenticated]);
+  }, []);
 
   // Mock data for demonstration
   const accountStats = {
@@ -192,7 +194,7 @@ const Account = () => {
                             Email Address
                           </p>
                           <p className="text-lg font-bold text-gray-900" style={{ fontFamily: 'Founders Grotesk, system-ui, sans-serif' }}>
-                            {auth0User?.email || "Not available"}
+                            {user?.email || "Not available"}
                           </p>
                         </div>
                       </div>
@@ -231,7 +233,7 @@ const Account = () => {
                             Account ID
                           </p>
                           <p className="text-sm font-mono text-gray-600 bg-white px-2 py-1 rounded border">
-                            {business?.id || auth0User?.sub || "N/A"}
+                            {business?.id || user?.sub || "N/A"}
                           </p>
                         </div>
                       </div>
@@ -294,3 +296,8 @@ const Account = () => {
 };
 
 export default Account;
+
+
+
+
+

@@ -57,7 +57,7 @@ const PaymentGuard = ({ children }) => {
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-4">Payment Required</h1>
           <p className="text-gray-600 mb-6">
-            Your subscription payment is overdue. Please update your payment method to continue using TrueTestify.
+            Your subscription payment is overdue. Please update your payment method to continue using ReviewMe.
           </p>
           <div className="space-y-3">
             <button
@@ -115,3 +115,4 @@ const PaymentGuard = ({ children }) => {
 };
 
 export default PaymentGuard;
+

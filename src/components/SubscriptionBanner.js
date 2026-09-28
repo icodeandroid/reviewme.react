@@ -155,3 +155,4 @@ const SubscriptionBanner = ({ subscriptionStatus, tier, storageUsage, trialActiv
 };
 
 export default SubscriptionBanner;
+

@@ -13,23 +13,22 @@ import {
   ChevronLeftIcon,
   ChevronRightIcon,
 } from "@heroicons/react/24/outline";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { UserCircleIcon } from "@heroicons/react/20/solid";
-import { useAuth0 } from "@auth0/auth0-react";
 import { assest } from "../assets/mockData";
 import LogoutModal from "./LogoutModal";
 
 const Sidebar = ({ setIsSidebarOpen, isLogoutModalOpen, setIsLogoutModalOpen }) => {
+  const navigate = useNavigate();
   const { logout, user } = useContext(AuthContext);
-  const { logout: auth0Logout, isAuthenticated } = useAuth0();
+  
   const location = useLocation();
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   const handleLogout = () => {
-    logout();
-    auth0Logout({ returnTo: window.location.origin });
+    logout(); navigate('/login');
   };
 
   const NavItem = ({ to, icon, label, onClick }) => {
@@ -67,7 +66,7 @@ const Sidebar = ({ setIsSidebarOpen, isLogoutModalOpen, setIsLogoutModalOpen }) 
           >
             <img 
               src={assest.Logo} 
-              alt="TrueTestify" 
+              alt="ReviewMe" 
               className="h-8 w-auto"
             />
           </Link>
@@ -182,7 +181,7 @@ const Sidebar = ({ setIsSidebarOpen, isLogoutModalOpen, setIsLogoutModalOpen }) 
 
       {/* Footer */}
       <div className={`${isCollapsed ? 'p-2' : 'p-4'} border-t border-gray-200`}>
-        {isAuthenticated && (
+        {!!user && (
           <button
             onClick={() => setIsLogoutModalOpen(true)}
             className={`w-full flex items-center ${isCollapsed ? 'justify-center px-2' : 'gap-3 px-4'} py-3 text-sm font-medium text-gray-600 hover:text-red-600 hover:bg-red-50 rounded-lg transition-all duration-200`}
@@ -200,3 +199,19 @@ const Sidebar = ({ setIsSidebarOpen, isLogoutModalOpen, setIsLogoutModalOpen }) 
 };
 
 export default Sidebar;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

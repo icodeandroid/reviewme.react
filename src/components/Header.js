@@ -6,18 +6,18 @@ import { AuthContext } from "../context/AuthContext";
 import axiosInstance from "../service/axiosInstanse";
 import { API_PATHS } from "../service/apiPaths";
 import toast from "react-hot-toast";
-import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 import LogoutModal from "./LogoutModal";
 
 const Header = () => {
+  const { logout } = useContext(AuthContext);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
   const [isAvatarOpen, setIsAvatarOpen] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const notificationRef = useRef(null);
   const avatarRef = useRef(null);
   const { user, privateInfo,tenant, refreshBusinessInfo, refreshNotifications } = useContext(AuthContext);
-  const { logout } = useAuth0();
+  
   const navigate = useNavigate();
 
   const notifications = privateInfo?.business?.unreadNotifications || 0;
@@ -66,11 +66,12 @@ const Header = () => {
       toast.error('Failed to mark notifications as read');
     }
   };
+ 
   return (
     <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6">
       <div className="flex items-center">
         <h1 className="text-xl font-semibold text-gray-900">
-          Hello {user?.name?.split(" ")[0] || "John"} 👋
+         Hello {user?.fullName?.split(" ")[0] || "There"} 👋
         </h1>
       </div>
 
@@ -144,13 +145,13 @@ const Header = () => {
               <img
                 className="w-10 h-10 rounded-full cursor-pointer hover:ring-2 hover:ring-blue-400 transition-all"
                 src={user.picture}
-                alt={user?.name || "User"}
+                alt={user?.fullname || "User"}
                 referrerPolicy="no-referrer"
               />
             ) : (
               <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-blue-400 transition-all">
                 <span className="text-white text-sm font-bold">
-                  {(user?.name || user?.email || "U")[0].toUpperCase()}
+                 {(user?.fullName || user?.email || "U")[0].toUpperCase()}
                 </span>
               </div>
             )}
@@ -165,18 +166,18 @@ const Header = () => {
                     <img
                       className="w-16 h-16 rounded-full border-2 border-white shadow-md"
                       src={user.picture}
-                      alt={user?.name || "User"}
+                      alt={user?.fullname || "User"}
                       referrerPolicy="no-referrer"
                     />
                   ) : (
                     <div className="w-16 h-16 rounded-full bg-blue-500 flex items-center justify-center border-2 border-white shadow-md">
                       <span className="text-white text-xl font-bold">
-                        {(user?.name || user?.email || "U")[0].toUpperCase()}
+                        {(user?.fullname || user?.email || "U")[0].toUpperCase()}
                       </span>
                     </div>
                   )}
                   <div className="flex-1">
-                    <h3 className="text-sm font-bold text-gray-900">{user?.name || "User"}</h3>
+                    <h3 className="text-sm font-bold text-gray-900">{user?.fullname || "User"}</h3>
                     <p className="text-xs text-gray-600">{user?.email}</p>
                   </div>
                 </div>
@@ -259,7 +260,7 @@ const Header = () => {
         isOpen={isLogoutModalOpen}
         onClose={() => setIsLogoutModalOpen(false)}
         onConfirm={() => {
-          logout({ returnTo: window.location.origin });
+          logout();
           setIsLogoutModalOpen(false);
         }}
       />
@@ -268,3 +269,11 @@ const Header = () => {
 };
 
 export default Header;
+
+
+
+
+
+
+
+

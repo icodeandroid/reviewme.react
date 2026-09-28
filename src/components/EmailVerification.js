@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useAuth0 } from '@auth0/auth0-react';
 import toast from 'react-hot-toast';
 import { EnvelopeIcon, ArrowPathIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 
 const EmailVerification = () => {
-  const { user, logout } = useAuth0();
+  
   const [resendCount, setResendCount] = useState(0);
   const [isBlocked, setIsBlocked] = useState(false);
   const [timeLeft, setTimeLeft] = useState(0);
@@ -124,7 +123,7 @@ const EmailVerification = () => {
         <div className="space-y-4">
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <p className="text-sm text-blue-800">
-              Please check your email and click the verification link to access TrueTestify.
+              Please check your email and click the verification link to access ReviewMe.
             </p>
           </div>
 
@@ -193,3 +192,5 @@ const EmailVerification = () => {
 };
 
 export default EmailVerification;
+
+

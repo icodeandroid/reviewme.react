@@ -8,19 +8,19 @@ import {
 } from "@heroicons/react/16/solid";
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/20/solid";
 import { AnimatePresence, motion } from "framer-motion";
-import { useAuth0 } from "@auth0/auth0-react";
+import logo from '../assets/ReviewMe.png';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isWidgetsDropdownOpen, setIsWidgetsDropdownOpen] = useState(false);
   const { user, logout } = useContext(AuthContext);
-  const { loginWithRedirect, logout: auth0Logout } = useAuth0();
+  
   const navigate = useNavigate();
 
-  const { isAuthenticated } = useAuth0();
+  
 
-  const navLinks = isAuthenticated
+  const navLinks = !!user
     ? [
         { name: "Dashboard", href: "/dashboard", isPrimary: true },
       ]
@@ -29,13 +29,13 @@ const Navbar = () => {
           name: "Log In",
           href: "#",
           isPrimary: false,
-          action: () => loginWithRedirect({ screen_hint: "login" }),
+          action: () => window.location.href='/login',
         },
         {
           name: "Get Started",
           href: "#",
           isPrimary: true,
-          action: () => loginWithRedirect({ screen_hint: "signup" }),
+          action: () => window.location.href='/signup',
         },
       ];
 
@@ -93,7 +93,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     logout();
-    auth0Logout({ returnTo: window.location.origin });
+    logout(); navigate('/login');
   };
 
   return (
@@ -102,8 +102,8 @@ const Navbar = () => {
         <div className="flex justify-between items-center max-w-7xl mx-auto px-4 relative z-10 overflow-visible">
           <Link to="/" className="flex items-center gap-3">
             <img 
-              src="./TrueTestify.png" 
-              alt="TrueTestify" 
+              src={logo}  
+              alt="ReviewMe" 
               className="h-10 w-auto hover:scale-105 transition-transform duration-300"
             />
           </Link>
@@ -217,7 +217,7 @@ const Navbar = () => {
                 </Link>
               )
             ))}
-            {isAuthenticated && (
+            {!!user && (
               <button
                 onClick={handleLogout}
                 className="hidden lg:block text-red-300 hover:text-red-100 transition-all duration-300 p-1.5 rounded-lg hover:bg-red-500/20"
@@ -255,8 +255,8 @@ const Navbar = () => {
                   className="flex items-center gap-3"
                 >
                   <img 
-                    src="/TrueTestify.png" 
-                    alt="TrueTestify" 
+                    src="/ReviewMe.png" 
+                    alt="ReviewMe" 
                     className="h-8 w-auto"
                   />
                 </Link>
@@ -350,7 +350,7 @@ const Navbar = () => {
                     </Link>
                   )
                 ))}
-                {isAuthenticated && (
+                {!!user && (
                   <button
                     onClick={() => {
                       handleLogout();
@@ -372,3 +372,8 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
+
+

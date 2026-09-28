@@ -73,7 +73,7 @@ const About = () => {
       year: "2020",
       title: "Founded",
       description:
-        "TrueTestify was born from a simple idea: make authentic testimonials accessible to every business.",
+        "ReviewMe was born from a simple idea: make authentic testimonials accessible to every business.",
     },
     {
       year: "2021",
@@ -119,7 +119,7 @@ const About = () => {
         </div>
         <div className="max-w-6xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 tracking-tight mb-6 leading-tight">
-            About <span className="text-blue-600">TrueTestify</span>
+            About <span className="text-blue-600">ReviewMe</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-4xl mx-auto leading-relaxed">
             We're on a mission to help businesses build trust through authentic
@@ -157,7 +157,7 @@ const About = () => {
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                 In today's digital world, trust is everything. Customers want to
                 hear from real people who have used your products or services.
-                That's why we built TrueTestify - to make it effortless for
+                That's why we built ReviewMe - to make it effortless for
                 businesses to collect and showcase authentic customer
                 testimonials.
               </p>
@@ -169,7 +169,7 @@ const About = () => {
               <div className="flex items-center gap-4">
                 <RocketLaunchIcon className="h-8 w-8 text-blue-600" />
                 <span className="text-lg font-semibold text-gray-800">
-                  Join 10,000+ businesses already using TrueTestify
+                  Join 10,000+ businesses already using ReviewMe
                 </span>
               </div>
             </div>
@@ -316,7 +316,7 @@ const About = () => {
             Ready to Transform Your Business?
           </h2>
           <p className="text-xl text-blue-100 mb-10 leading-relaxed">
-            Join thousands of businesses already using TrueTestify to build
+            Join thousands of businesses already using ReviewMe to build
             trust and drive sales through authentic customer testimonials.
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
@@ -340,3 +340,5 @@ const About = () => {
 };
 
 export default About;
+
+

@@ -31,3 +31,5 @@ const StarRating = ({ rating, reviewCount }) => {
 };
 
 export default StarRating;
+
+

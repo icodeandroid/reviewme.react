@@ -13,14 +13,13 @@ import {
 } from "@heroicons/react/20/solid";
 import { motion } from "framer-motion";
 import PaymentPrompt from "../../components/PaymentPrompt";
-import { useAuth0 } from "@auth0/auth0-react";
 import useSubscription from "../../hooks/useSubscription";
 import { useTrialStatus } from "../../components/TrialGuard";
 import SubscriptionBanner from "../../components/SubscriptionBanner";
 import ReviewCard from "../../components/ReviewCard";
 
 const Moderation = () => {
-  const { isAuthenticated } = useAuth0();
+  
   const subscription = useSubscription();
   const { isReadOnly } = useTrialStatus();
   const { subscriptionData } = subscription;
@@ -56,10 +55,10 @@ const Moderation = () => {
       }
     };
 
-    if (isAuthenticated) {
+    if (true) {
       fetchData();
     }
-  }, [isAuthenticated]);
+  }, []);
 
   
   // ------ Filter and search reviews
@@ -658,3 +657,7 @@ const Moderation = () => {
 
 
 export default Moderation;
+
+
+
+

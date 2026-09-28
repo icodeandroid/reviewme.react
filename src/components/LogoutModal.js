@@ -40,3 +40,5 @@ const LogoutModal = ({ isOpen, onClose, onConfirm }) => {
 };
 
 export default LogoutModal;
+
+

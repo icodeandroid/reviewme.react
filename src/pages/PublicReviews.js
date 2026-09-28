@@ -183,7 +183,7 @@ const PublicReviews = ({ businessSlug }) => {
       const dataUrl = qrDataUrl || (await QRCode.toDataURL(publicRecordUrl, { margin: 1, width: 512 }));
       const link = document.createElement("a");
       link.href = dataUrl;
-      link.download = `truetestify-record-${businessName || businessSlug}.png`;
+      link.download = `ReviewMe-record-${businessName || businessSlug}.png`;
       link.click();
       toast.success("QR code downloaded.");
     } catch (e) {
@@ -195,7 +195,7 @@ const PublicReviews = ({ businessSlug }) => {
   const getS3Url = (s3Key) => {
     if (!s3Key) return null;
     if (s3Key.startsWith('http')) return s3Key;
-    return `https://truetestify.s3.us-east-1.amazonaws.com/${s3Key}`;
+    return `https://ReviewMe.s3.us-east-1.amazonaws.com/${s3Key}`;
   };
 
   // 404 Page
@@ -547,3 +547,4 @@ const PublicReviews = ({ businessSlug }) => {
 };
 
 export default PublicReviews;
+

@@ -17,3 +17,5 @@ const NavLink = ({ to, icon, label, onClick, isCollapsed }) => {
 };
 
 export default NavLink;
+
+

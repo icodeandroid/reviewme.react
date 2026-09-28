@@ -323,3 +323,4 @@ const QRCodeCollection = () => {
 };
 
 export default QRCodeCollection;
+

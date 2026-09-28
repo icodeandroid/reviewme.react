@@ -14,12 +14,11 @@ import { API_PATHS } from "../../service/apiPaths";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import { useStorageStatus } from "../../hooks/useFeatureAccess";
-import { useAuth0 } from "@auth0/auth0-react";
 import SubscriptionBanner from "../../components/SubscriptionBanner";
 import useSubscription from "../../hooks/useSubscription";
 
 const Analytics = () => {
-  const { isAuthenticated } = useAuth0();
+  
   const { storageStatus } = useStorageStatus();
   const { subscriptionData } = useSubscription();
   const [business, setBusiness] = useState(null);
@@ -143,10 +142,10 @@ const Analytics = () => {
       }
     };
 
-    if (isAuthenticated) {
+    if (true) {
       fetchData();
     }
-  }, [isAuthenticated]);
+  }, []);
 
   // Filter reviews based on time range
   const filteredReviews = getFilteredData(reviews, timeRange);
@@ -645,3 +644,8 @@ const Analytics = () => {
   );
 };
 export default Analytics;
+
+
+
+
+

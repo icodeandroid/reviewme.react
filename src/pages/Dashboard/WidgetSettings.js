@@ -24,10 +24,9 @@ import FeatureGate from "../../components/FeatureGate";
 import UpgradeModal from "../../components/UpgradeModal";
 import useSubscription from "../../hooks/useSubscription";
 import { useTrialStatus } from "../../components/TrialGuard";
-import { useAuth0 } from "@auth0/auth0-react";
 
 const WidgetsettingsJson = () => {
-  const {user} = useAuth0()
+  const { user } = useContext(AuthContext)
   const { tenant, hasFeature } = useContext(AuthContext);
   const subscription = useSubscription();
   const { isReadOnly } = useTrialStatus();
@@ -256,7 +255,7 @@ useEffect(() => {
         (await QRCode.toDataURL(publicRecordUrl, { margin: 1, width: 512 }));
       const link = document.createElement("a");
       link.href = dataUrl;
-      link.download = `truetestify-record-${businessSlug}.png`;
+      link.download = `ReviewMe-record-${businessSlug}.png`;
       link.click();
       toast.success("QR code downloaded.");
     } catch (e) {
@@ -324,20 +323,20 @@ useEffect(() => {
               {user?.picture ? (
                 <img
                   src={user.picture}
-                  alt={user?.name || "User"}
+                  alt={user?.fullname || "User"}
                   className="w-16 h-16 rounded-full object-cover"
                   referrerPolicy="no-referrer"
                 />
               ) : (
                 <div className="w-16 h-16 rounded-full bg-blue-500 flex items-center justify-center">
                   <span className="text-white text-xl font-bold">
-                    {(user?.name || user?.email || "U")[0].toUpperCase()}
+                    {(user?.fullname || user?.email || "U")[0].toUpperCase()}
                   </span>
                 </div>
               )}
               <div>
                 <h3 className="text-lg font-bold text-gray-900">
-                  {user?.name || "User"}
+                  {user?.fullname || "User"}
                 </h3>
                 <p className="text-sm bg-green-100 text-green-700 px-2 py-1 rounded inline-block">
                   {user?.email}
@@ -1208,3 +1207,7 @@ useEffect(() => {
 };
 
 export default WidgetsettingsJson;
+
+
+
+

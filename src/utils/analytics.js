@@ -43,3 +43,4 @@ export const trackWidgetClick = (businessId, widgetId) => {
 export const trackReviewSubmission = (businessId, widgetId = null, reviewData = {}) => {
   trackEvent(businessId, EVENT_TYPES.REVIEW_SUBMISSION, widgetId, reviewData);
 };
+

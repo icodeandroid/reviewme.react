@@ -60,7 +60,7 @@ const FeatureGate = ({
       case 'white_label':
         return {
           title: 'White Label Solution',
-          description: 'Remove TrueTestify branding and use your own.',
+          description: 'Remove ReviewMe branding and use your own.',
           requiredPlan: 'Enterprise',
           icon: 'label',
         };
@@ -180,3 +180,4 @@ const FeatureGate = ({
 };
 
 export default FeatureGate;
+

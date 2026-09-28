@@ -94,7 +94,7 @@ const PrivacyPolicy = () => {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">1. Overview</h2>
                 <div className="prose prose-lg max-w-none text-gray-700">
                   <p className="mb-4">
-                    TrueTestify Inc. ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy 
+                    ReviewMe Inc. ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy 
                     explains how we collect, use, disclose, and safeguard your information when you use our testimonial 
                     collection and management platform.
                   </p>
@@ -281,7 +281,7 @@ const PrivacyPolicy = () => {
                   </ul>
 
                   <p className="mb-4">
-                    To exercise these rights, please contact us at privacy@truetestify.com. We will respond to your request 
+                    To exercise these rights, please contact us at privacy@ReviewMe.com. We will respond to your request 
                     within 30 days.
                   </p>
                 </div>
@@ -328,10 +328,10 @@ const PrivacyPolicy = () => {
                     If you have any questions about this Privacy Policy or our privacy practices, please contact us:
                   </p>
                   <div className="bg-gray-50 rounded-lg p-6">
-                    <p className="mb-2"><strong>Email:</strong> privacy@truetestify.com</p>
+                    <p className="mb-2"><strong>Email:</strong> privacy@ReviewMe.com</p>
                     <p className="mb-2"><strong>Address:</strong> 123 Business Street, Suite 100, City, State 12345</p>
                     <p className="mb-2"><strong>Phone:</strong> +1 (555) 123-4567</p>
-                    <p><strong>Data Protection Officer:</strong> dpo@truetestify.com</p>
+                    <p><strong>Data Protection Officer:</strong> dpo@ReviewMe.com</p>
                   </div>
                   <p className="mt-4">
                     You can also review our <Link to="/terms" className="text-blue-600 hover:text-blue-700 font-semibold">Terms of Service</Link> for additional information about your rights and obligations.
@@ -347,3 +347,4 @@ const PrivacyPolicy = () => {
 };
 
 export default PrivacyPolicy;
+

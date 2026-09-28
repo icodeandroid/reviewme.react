@@ -45,7 +45,7 @@ const TermsOfService = () => {
               Terms of Service
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Please read these terms carefully before using TrueTestify services.
+              Please read these terms carefully before using ReviewMe services.
             </p>
             <div className="flex items-center justify-center gap-4 text-blue-100">
               <CalendarIcon className="h-5 w-5" />
@@ -90,8 +90,8 @@ const TermsOfService = () => {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">1. Overview</h2>
                 <div className="prose prose-lg max-w-none text-gray-700">
                   <p className="mb-4">
-                    These Terms of Service ("Terms") govern your use of TrueTestify's website and services 
-                    (collectively, the "Service") operated by TrueTestify Inc. ("we," "us," or "our").
+                    These Terms of Service ("Terms") govern your use of ReviewMe's website and services 
+                    (collectively, the "Service") operated by ReviewMe Inc. ("we," "us," or "our").
                   </p>
                   <p className="mb-4">
                     By accessing or using the Service, you agree to be bound by these Terms. If you disagree 
@@ -100,7 +100,7 @@ const TermsOfService = () => {
                   <div className="bg-blue-50 border-l-4 border-blue-400 p-4 my-6">
                     <p className="text-blue-800 font-semibold">
                       <InformationCircleIcon className="h-5 w-5 inline mr-2" />
-                      Important: These terms constitute a legally binding agreement between you and TrueTestify.
+                      Important: These terms constitute a legally binding agreement between you and ReviewMe.
                     </p>
                   </div>
                 </div>
@@ -111,7 +111,7 @@ const TermsOfService = () => {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">2. Services</h2>
                 <div className="prose prose-lg max-w-none text-gray-700">
                   <p className="mb-4">
-                    TrueTestify provides a platform for collecting, managing, and displaying customer testimonials 
+                    ReviewMe provides a platform for collecting, managing, and displaying customer testimonials 
                     and reviews. Our services include:
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
@@ -201,7 +201,7 @@ const TermsOfService = () => {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">6. Intellectual Property</h2>
                 <div className="prose prose-lg max-w-none text-gray-700">
                   <p className="mb-4">
-                    The Service and its original content, features, and functionality are owned by TrueTestify 
+                    The Service and its original content, features, and functionality are owned by ReviewMe 
                     and are protected by international copyright, trademark, patent, trade secret, and other 
                     intellectual property laws.
                   </p>
@@ -252,7 +252,7 @@ const TermsOfService = () => {
                 <h2 className="text-3xl font-bold text-gray-900 mb-6">9. Limitation of Liability</h2>
                 <div className="prose prose-lg max-w-none text-gray-700">
                   <p className="mb-4">
-                    In no event shall TrueTestify, nor its directors, employees, partners, agents, suppliers, 
+                    In no event shall ReviewMe, nor its directors, employees, partners, agents, suppliers, 
                     or affiliates, be liable for any indirect, incidental, special, consequential, or punitive 
                     damages, including without limitation, loss of profits, data, use, goodwill, or other 
                     intangible losses, resulting from your use of the Service.
@@ -289,7 +289,7 @@ const TermsOfService = () => {
                     If you have any questions about these Terms of Service, please contact us:
                   </p>
                   <div className="bg-gray-50 rounded-lg p-6">
-                    <p className="mb-2"><strong>Email:</strong> legal@truetestify.com</p>
+                    <p className="mb-2"><strong>Email:</strong> legal@ReviewMe.com</p>
                     <p className="mb-2"><strong>Address:</strong> 123 Business Street, Suite 100, City, State 12345</p>
                     <p><strong>Phone:</strong> +1 (555) 123-4567</p>
                   </div>
@@ -304,3 +304,4 @@ const TermsOfService = () => {
 };
 
 export default TermsOfService;
+

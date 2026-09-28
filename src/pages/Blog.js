@@ -81,7 +81,7 @@ const Blog = () => {
     {
       id: 5,
       title: "Case Study: How TechCorp Increased Sales by 40%",
-      excerpt: "See how TechCorp used TrueTestify to collect and display customer testimonials, resulting in a 40% increase in sales conversions.",
+      excerpt: "See how TechCorp used ReviewMe to collect and display customer testimonials, resulting in a 40% increase in sales conversions.",
       author: "Sarah Johnson",
       date: "March 5, 2024",
       readTime: "9 min read",
@@ -135,7 +135,7 @@ const Blog = () => {
         <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">
-              TrueTestify Blog
+              ReviewMe Blog
           </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
               Insights, tips, and strategies to help you build trust and grow your business through authentic customer testimonials.
@@ -364,3 +364,5 @@ const Blog = () => {
 };
 
 export default Blog;
+
+

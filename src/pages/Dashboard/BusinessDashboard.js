@@ -11,13 +11,14 @@ import ContactInfoCard from "../../components/ContactInfoCard";
 import HeaderSocialIcons from "../../components/HeaderSocialIcons";
 import StarRating from "../../components/StarRating";
 import { getS3Url } from "../../utils/s3Utils";
+import { Link } from "react-router-dom";
 
 const BusinessDashboard = () => {
   const { isReadOnly } = useTrialStatus();
   
   // Using centralized S3 URL helper
   const [business, setBusiness] = useState(null);
-  const [reviews, setReviews] = useState([]);
+  const [setReviews] = useState([]);
   const [allReviews, setAllReviews] = useState([]); // This will hold ONLY approved reviews
   const [loading, setLoading] = useState(true);
   const [reviewFilters, setReviewFilters] = useState({
@@ -29,9 +30,9 @@ const BusinessDashboard = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editing, setEditing] = useState({});
   const [formData, setFormData] = useState({});
-  const [logoFile, setLogoFile] = useState(null);
+  const [setLogoFile] = useState(null);
   const [logoUploading, setLogoUploading] = useState(false);
-  const [bannerFile, setBannerFile] = useState(null);
+  const [setBannerFile] = useState(null);
   const [bannerUploading, setBannerUploading] = useState(false);
 
   // Fetch business data
@@ -41,34 +42,34 @@ const BusinessDashboard = () => {
       const response = await axiosInstance.get(API_PATHS.BUSINESSES.GET_PRIVATE_PROFILE);
       console.log(response);
       
-      setBusiness(response.data.business || null);
+      setBusiness(response.data || null);
       
-      const allReviewsData = response.data.reviews || [];
+      const allReviewsData = [] || [];
       const approvedReviewsData = allReviewsData.filter(r => r.status === 'approved');
       
       setAllReviews(approvedReviewsData);
       setReviews(approvedReviewsData); 
       
-      if (response.data.business) {
+      if (response.data) {
         setFormData({
-          name: response.data.business.name || '',
-          description: response.data.business.description || '',
-          industry: response.data.business.industry || '',
-          website: response.data.business.website || '',
-          contactEmail: response.data.business.contactEmail || '',
-          phone: response.data.business.phone || '',
-          address: response.data.business.address || '',
-          city: response.data.business.city || '',
-          state: response.data.business.state || '',
-          country: response.data.business.country || '',
-          postalCode: response.data.business.postalCode || '',
-          companySize: response.data.business.companySize || '',
-          foundedYear: response.data.business.foundedYear || '',
-          brandColor: response.data.business.brandColor || '#ef7c00',
-          thumbnailUrl: response.data.business.thumbnailUrl || '',
-          bannerUrl: response.data.business.bannerUrl || '',
-          businessHours: typeof response.data.business.businessHours === 'string' ? response.data.business.businessHours : JSON.stringify(response.data.business.businessHours || {}),
-          socialLinks: typeof response.data.business.socialLinks === 'string' ? response.data.business.socialLinks : JSON.stringify(response.data.business.socialLinks || {})
+          name: response.data.name || '',
+          description: response.data.description || '',
+          industry: response.data.industry || '',
+          website: response.data.website || '',
+          contactEmail: response.data.contactEmail || '',
+          phone: response.data.phone || '',
+          address: response.data.address || '',
+          city: response.data.city || '',
+          state: response.data.state || '',
+          country: response.data.country || '',
+          postalCode: response.data.postalCode || '',
+          companySize: response.data.companySize || '',
+          foundedYear: response.data.foundedYear || '',
+          brandColor: response.data.brandColor || '#ef7c00',
+          thumbnailUrl: response.data.thumbnailUrl || '',
+          bannerUrl: response.data.bannerUrl || '',
+          businessHours: typeof response.data.businessHours === 'string' ? response.data.businessHours : JSON.stringify(response.data.businessHours || {}),
+          socialLinks: typeof response.data.socialLinks === 'string' ? response.data.socialLinks : JSON.stringify(response.data.socialLinks || {})
         });
       }
     } catch (error) {
@@ -210,7 +211,7 @@ const BusinessDashboard = () => {
         headers: { "Content-Type": "multipart/form-data" }
       });
       
-      setBusiness(prev => ({ ...prev, logoUrl: response.data.business.logoUrl }));
+      setBusiness(prev => ({ ...prev, logoUrl: response.data.logoUrl }));
       toast.success('Logo updated successfully!');
     } catch (error) {
       toast.error('Failed to update logo');
@@ -233,8 +234,8 @@ const BusinessDashboard = () => {
         headers: { "Content-Type": "multipart/form-data" }
       });
       
-      setBusiness(prev => ({ ...prev, bannerUrl: response.data.business.bannerUrl }));
-      setFormData(prev => ({ ...prev, bannerUrl: response.data.business.bannerUrl }));
+      setBusiness(prev => ({ ...prev, bannerUrl: response.data.bannerUrl }));
+      setFormData(prev => ({ ...prev, bannerUrl: response.data.bannerUrl }));
       toast.success('Banner updated successfully!');
     } catch (error) {
       toast.error('Failed to update banner');
@@ -258,7 +259,24 @@ const BusinessDashboard = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
+  if (!loading && !business) {
+    return (
+      <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
+        <h2 className="text-2xl font-semibold text-gray-900 mb-2">
+          No business profile yet
+        </h2>
+        <p className="text-gray-600 mb-6">
+          Create your business to start collecting reviews.
+        </p>
+        <Link
+          to="/create-business"
+          className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-6 py-3 rounded-lg transition-colors"
+        >
+          Create your business
+        </Link>
+      </div>
+    );
+  }
   return (
     <div className={`min-h-screen bg-gray-50`} style={{ fontFamily: 'Inter, Poppins, system-ui, sans-serif' }}>
       
@@ -383,7 +401,7 @@ const BusinessDashboard = () => {
                           </div>
                         ) : (
                           <div className="flex items-center space-x-2 mb-1">
-                            <h1 className="text-2xl font-bold text-gray-900">{business.name}</h1>
+                            <h1 className="text-2xl font-bold text-gray-900">{business?.name}</h1>
                             <button onClick={() => isReadOnly ? toast.error('Upgrade to edit business info') : toggleEdit('name')} className={`${isReadOnly ? 'text-gray-300 cursor-not-allowed' : 'text-gray-400 hover:text-blue-600'}`}>
                               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" /></svg>
                             </button>
@@ -638,3 +656,5 @@ const BusinessDashboard = () => {
 };
 
 export default BusinessDashboard;
+
+

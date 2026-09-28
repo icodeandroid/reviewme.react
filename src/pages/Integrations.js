@@ -111,7 +111,7 @@ const Integrations = () => {
               Integrations
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Connect TrueTestify with your favorite platforms and tools. Seamless integration for maximum impact.
+              Connect ReviewMe with your favorite platforms and tools. Seamless integration for maximum impact.
             </p>
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
               <Link
@@ -266,3 +266,4 @@ const Integrations = () => {
 };
 
 export default Integrations;
+
